@@ -1,0 +1,4568 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer localhost",
+        "connectionString": "Provider=SQLNCLI11.1;Persist Security Info=False;User ID=wadecb;Initial Catalog=AdventureWorksSqlDw-CW0;Data Source=aspaas-sqldwsvr-cw0.database.windows.net",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Currency",
+        "columns": [
+          {
+            "name": "CurrencyKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "Currency Code",
+            "dataType": "string",
+            "sourceColumn": "CurrencyAlternateKey"
+          },
+          {
+            "name": "CurrencyName",
+            "dataType": "string",
+            "sourceColumn": "CurrencyName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Currency",
+            "source": {
+              "query": "SELECT [dbo].[DimCurrency].* \t\tFROM [dbo].[DimCurrency]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimCurrency"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimCurrency].*   FROM [dbo].[DimCurrency] "
+          }
+        ]
+      },
+      {
+        "name": "Customer",
+        "columns": [
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "GeographyKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "GeographyKey"
+          },
+          {
+            "name": "Customer Id",
+            "dataType": "string",
+            "sourceColumn": "CustomerAlternateKey"
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title"
+          },
+          {
+            "name": "First Name",
+            "dataType": "string",
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "Middle Name",
+            "dataType": "string",
+            "sourceColumn": "MiddleName"
+          },
+          {
+            "name": "Last Name",
+            "dataType": "string",
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "Name Style",
+            "dataType": "boolean",
+            "sourceColumn": "NameStyle"
+          },
+          {
+            "name": "Birth Date",
+            "dataType": "dateTime",
+            "sourceColumn": "BirthDate"
+          },
+          {
+            "name": "Marital Status",
+            "dataType": "string",
+            "sourceColumn": "MaritalStatus"
+          },
+          {
+            "name": "Suffix",
+            "dataType": "string",
+            "sourceColumn": "Suffix"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "sourceColumn": "Gender"
+          },
+          {
+            "name": "Email Address",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress"
+          },
+          {
+            "name": "Yearly Income",
+            "dataType": "decimal",
+            "sourceColumn": "YearlyIncome",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Children",
+            "dataType": "int64",
+            "sourceColumn": "TotalChildren",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Number of Children At Home",
+            "dataType": "int64",
+            "sourceColumn": "NumberChildrenAtHome",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Education",
+            "dataType": "string",
+            "sourceColumn": "EnglishEducation"
+          },
+          {
+            "name": "Occupation",
+            "dataType": "string",
+            "sourceColumn": "EnglishOccupation"
+          },
+          {
+            "name": "Owns House",
+            "dataType": "boolean",
+            "sourceColumn": "HouseOwnerFlag",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "name": "Total Cars Owned",
+            "dataType": "int64",
+            "sourceColumn": "NumberCarsOwned",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Address Line 1",
+            "dataType": "string",
+            "sourceColumn": "AddressLine1"
+          },
+          {
+            "name": "Address Line 2",
+            "dataType": "string",
+            "sourceColumn": "AddressLine2"
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone"
+          },
+          {
+            "name": "Date Of First Purchase",
+            "dataType": "dateTime",
+            "sourceColumn": "DateFirstPurchase"
+          },
+          {
+            "name": "Commute Distance",
+            "dataType": "string",
+            "sourceColumn": "CommuteDistance"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Customer",
+            "source": {
+              "query": "SELECT [dbo].[DimCustomer].* \t\tFROM [dbo].[DimCustomer]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimCustomer"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimCustomer].*   FROM [dbo].[DimCustomer] "
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DateKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "FullDateAlternateKey"
+          },
+          {
+            "name": "Day Number Of Week",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfWeek",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Day Name Of Week",
+            "dataType": "string",
+            "sourceColumn": "EnglishDayNameOfWeek",
+            "sortByColumn": "Day Number Of Week"
+          },
+          {
+            "name": "Day Of Month",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfMonth",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Day Of Year",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Week Of Year",
+            "dataType": "int64",
+            "sourceColumn": "WeekNumberOfYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month Name",
+            "dataType": "string",
+            "sourceColumn": "EnglishMonthName",
+            "sortByColumn": "Month"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "MonthNumberOfYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Quarter",
+            "dataType": "int64",
+            "sourceColumn": "CalendarQuarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Year",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Semester",
+            "dataType": "int64",
+            "sourceColumn": "CalendarSemester",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Quarter",
+            "dataType": "int64",
+            "sourceColumn": "FiscalQuarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Year",
+            "dataType": "int64",
+            "sourceColumn": "FiscalYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Semester",
+            "dataType": "int64",
+            "sourceColumn": "FiscalSemester",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Date",
+            "source": {
+              "query": "SELECT [dbo].[DimDate].* \t\tFROM [dbo].[DimDate]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Days In Current Quarter to Date",
+            "expression": "COUNTROWS( DATESQTD( 'Date'[Date]))"
+          },
+          {
+            "name": "Days In Current Quarter",
+            "expression": "COUNTROWS( DATESBETWEEN( 'Date'[Date], STARTOFQUARTER( LASTDATE('Date'[Date])), ENDOFQUARTER('Date'[Date])))"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Calendar",
+            "levels": [
+              {
+                "name": "Year",
+                "ordinal": 0,
+                "column": "Calendar Year"
+              },
+              {
+                "name": "Semester",
+                "ordinal": 1,
+                "column": "Calendar Semester"
+              },
+              {
+                "name": "Quarter",
+                "ordinal": 2,
+                "column": "Calendar Quarter"
+              },
+              {
+                "name": "Month",
+                "ordinal": 3,
+                "column": "Month Name"
+              },
+              {
+                "name": "Day",
+                "ordinal": 4,
+                "column": "Day Of Month"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal",
+            "levels": [
+              {
+                "name": "Fiscal Year",
+                "ordinal": 0,
+                "column": "Fiscal Year"
+              },
+              {
+                "name": "Fiscal Semester",
+                "ordinal": 1,
+                "column": "Fiscal Semester"
+              },
+              {
+                "name": "Fiscal Quarter",
+                "ordinal": 2,
+                "column": "Fiscal Quarter"
+              },
+              {
+                "name": "Month",
+                "ordinal": 3,
+                "column": "Month Name"
+              },
+              {
+                "name": "Day",
+                "ordinal": 4,
+                "column": "Day Of Month"
+              }
+            ]
+          },
+          {
+            "name": "Production Calendar",
+            "levels": [
+              {
+                "name": "Year",
+                "ordinal": 0,
+                "column": "Calendar Year"
+              },
+              {
+                "name": "Week",
+                "ordinal": 1,
+                "column": "Week Of Year"
+              },
+              {
+                "name": "Week Day",
+                "ordinal": 2,
+                "column": "Day Name Of Week"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimDate"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimDate].*   FROM [dbo].[DimDate] "
+          }
+        ]
+      },
+      {
+        "name": "Employee",
+        "columns": [
+          {
+            "name": "EmployeeKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "EmployeeKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ParentEmployeeKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ParentEmployeeKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee Id",
+            "dataType": "string",
+            "sourceColumn": "EmployeeNationalIDAlternateKey"
+          },
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "First Name",
+            "dataType": "string",
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "Last Name",
+            "dataType": "string",
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "Middle Name",
+            "dataType": "string",
+            "sourceColumn": "MiddleName"
+          },
+          {
+            "name": "NameStyle",
+            "dataType": "boolean",
+            "sourceColumn": "NameStyle"
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title"
+          },
+          {
+            "name": "Hire Date",
+            "dataType": "dateTime",
+            "sourceColumn": "HireDate"
+          },
+          {
+            "name": "Birth Date",
+            "dataType": "dateTime",
+            "sourceColumn": "BirthDate"
+          },
+          {
+            "name": "Login",
+            "dataType": "string",
+            "sourceColumn": "LoginID"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress"
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone"
+          },
+          {
+            "name": "Marital Status",
+            "dataType": "string",
+            "sourceColumn": "MaritalStatus"
+          },
+          {
+            "name": "Emergency Contact Name",
+            "dataType": "string",
+            "sourceColumn": "EmergencyContactName"
+          },
+          {
+            "name": "Emergency Contact Phone",
+            "dataType": "string",
+            "sourceColumn": "EmergencyContactPhone"
+          },
+          {
+            "name": "Is Salaried",
+            "dataType": "boolean",
+            "sourceColumn": "SalariedFlag"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "sourceColumn": "Gender"
+          },
+          {
+            "name": "Pay Frequency",
+            "dataType": "int64",
+            "sourceColumn": "PayFrequency",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Base Rate",
+            "dataType": "decimal",
+            "sourceColumn": "BaseRate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Vacation Hours",
+            "dataType": "int64",
+            "sourceColumn": "VacationHours",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sick Leave Hours",
+            "dataType": "int64",
+            "sourceColumn": "SickLeaveHours",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Is Current",
+            "dataType": "boolean",
+            "sourceColumn": "CurrentFlag"
+          },
+          {
+            "name": "Is Sales Person",
+            "dataType": "boolean",
+            "sourceColumn": "SalesPersonFlag"
+          },
+          {
+            "name": "Department Name",
+            "dataType": "string",
+            "sourceColumn": "DepartmentName"
+          },
+          {
+            "name": "Start Date",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "End Date",
+            "dataType": "dateTime",
+            "sourceColumn": "EndDate"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Employee",
+            "source": {
+              "query": "SELECT [dbo].[DimEmployee].* \t\tFROM [dbo].[DimEmployee]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimEmployee"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimEmployee].*   FROM [dbo].[DimEmployee] "
+          }
+        ]
+      },
+      {
+        "name": "Geography",
+        "columns": [
+          {
+            "name": "GeographyKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "GeographyKey"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City"
+          },
+          {
+            "name": "State Province Code",
+            "dataType": "string",
+            "sourceColumn": "StateProvinceCode"
+          },
+          {
+            "name": "State Province Name",
+            "dataType": "string",
+            "sourceColumn": "StateProvinceName"
+          },
+          {
+            "name": "Country Region Code",
+            "dataType": "string",
+            "sourceColumn": "CountryRegionCode"
+          },
+          {
+            "name": "Country Region Name",
+            "dataType": "string",
+            "sourceColumn": "EnglishCountryRegionName"
+          },
+          {
+            "name": "Postal Code",
+            "dataType": "string",
+            "sourceColumn": "PostalCode"
+          },
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SalesTerritoryKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Geography",
+            "source": {
+              "query": "SELECT [dbo].[DimGeography].* \t\tFROM [dbo].[DimGeography]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Geography",
+            "levels": [
+              {
+                "name": "Country Region",
+                "ordinal": 0,
+                "column": "Country Region Name"
+              },
+              {
+                "name": "State Province",
+                "ordinal": 1,
+                "column": "State Province Name"
+              },
+              {
+                "name": "City",
+                "ordinal": 2,
+                "column": "City"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimGeography"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimGeography].*   FROM [dbo].[DimGeography] "
+          }
+        ]
+      },
+      {
+        "name": "Product",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "Product Id",
+            "dataType": "string",
+            "sourceColumn": "ProductAlternateKey"
+          },
+          {
+            "name": "ProductSubcategoryKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ProductSubcategoryKey"
+          },
+          {
+            "name": "Weight Unit Code",
+            "dataType": "string",
+            "sourceColumn": "WeightUnitMeasureCode"
+          },
+          {
+            "name": "Size Unit Code",
+            "dataType": "string",
+            "sourceColumn": "SizeUnitMeasureCode"
+          },
+          {
+            "name": "Product Name",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductName",
+            "isDefaultLabel": true
+          },
+          {
+            "name": "Standard Cost",
+            "dataType": "decimal",
+            "sourceColumn": "StandardCost",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Is Finished Goods",
+            "dataType": "boolean",
+            "sourceColumn": "FinishedGoodsFlag"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color"
+          },
+          {
+            "name": "Safety Stock Level",
+            "dataType": "int64",
+            "sourceColumn": "SafetyStockLevel",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Reorder Point",
+            "dataType": "int64",
+            "sourceColumn": "ReorderPoint",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "List Price",
+            "dataType": "decimal",
+            "sourceColumn": "ListPrice",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Size",
+            "dataType": "string",
+            "sourceColumn": "Size"
+          },
+          {
+            "name": "Size Range",
+            "dataType": "string",
+            "sourceColumn": "SizeRange"
+          },
+          {
+            "name": "Weight",
+            "dataType": "double",
+            "sourceColumn": "Weight",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Days To Manufacture",
+            "dataType": "int64",
+            "sourceColumn": "DaysToManufacture"
+          },
+          {
+            "name": "Product Line",
+            "dataType": "string",
+            "sourceColumn": "ProductLine"
+          },
+          {
+            "name": "Dealer Price",
+            "dataType": "decimal",
+            "sourceColumn": "DealerPrice",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Class",
+            "dataType": "string",
+            "sourceColumn": "Class"
+          },
+          {
+            "name": "Style",
+            "dataType": "string",
+            "sourceColumn": "Style"
+          },
+          {
+            "name": "Model Name",
+            "dataType": "string",
+            "sourceColumn": "ModelName"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "sourceColumn": "EnglishDescription"
+          },
+          {
+            "name": "Product Start Date",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Product End Date",
+            "dataType": "dateTime",
+            "sourceColumn": "EndDate"
+          },
+          {
+            "name": "Product Status",
+            "dataType": "string",
+            "sourceColumn": "Status"
+          },
+          {
+            "type": "calculated",
+            "name": "Product SubCategory Name",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED('Product SubCategory'[Product Subcategory Name])"
+          },
+          {
+            "type": "calculated",
+            "name": "Product Category Name",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED('Product Category'[Product Category Name])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Product",
+            "source": {
+              "query": "SELECT [dbo].[DimProduct].* \t\tFROM [dbo].[DimProduct]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Category",
+            "levels": [
+              {
+                "name": "Category",
+                "ordinal": 0,
+                "column": "Product Category Name"
+              },
+              {
+                "name": "SubCategory",
+                "ordinal": 1,
+                "column": "Product SubCategory Name"
+              },
+              {
+                "name": "Model",
+                "ordinal": 2,
+                "column": "Model Name"
+              },
+              {
+                "name": "Product",
+                "ordinal": 3,
+                "column": "Product Name"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimProduct"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimProduct].*   FROM [dbo].[DimProduct] "
+          }
+        ]
+      },
+      {
+        "name": "Product Category",
+        "columns": [
+          {
+            "name": "ProductCategoryKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ProductCategoryKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Category Name",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductCategoryName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Product Category",
+            "source": {
+              "query": "SELECT [dbo].[DimProductCategory].* \t\tFROM [dbo].[DimProductCategory]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimProductCategory"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimProductCategory].*   FROM [dbo].[DimProductCategory] "
+          }
+        ]
+      },
+      {
+        "name": "Product Subcategory",
+        "columns": [
+          {
+            "name": "ProductSubcategoryKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ProductSubcategoryKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Subcategory Name",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductSubcategoryName"
+          },
+          {
+            "name": "ProductCategoryKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ProductCategoryKey",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Product Subcategory",
+            "source": {
+              "query": "SELECT [dbo].[DimProductSubcategory].* \t\tFROM [dbo].[DimProductSubcategory]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimProductSubcategory"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimProductSubcategory].*   FROM [dbo].[DimProductSubcategory] "
+          }
+        ]
+      },
+      {
+        "name": "Promotion",
+        "columns": [
+          {
+            "name": "PromotionKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PromotionKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Promotion Name",
+            "dataType": "string",
+            "sourceColumn": "EnglishPromotionName"
+          },
+          {
+            "name": "DiscountPct",
+            "dataType": "double",
+            "sourceColumn": "DiscountPct",
+            "formatString": "0.00",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Promotion Type",
+            "dataType": "string",
+            "sourceColumn": "EnglishPromotionType"
+          },
+          {
+            "name": "Promotion Category",
+            "dataType": "string",
+            "sourceColumn": "EnglishPromotionCategory"
+          },
+          {
+            "name": "Promotion Start Date",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "Promotion End Date",
+            "dataType": "dateTime",
+            "sourceColumn": "EndDate"
+          },
+          {
+            "name": "Min Quantity",
+            "dataType": "int64",
+            "sourceColumn": "MinQty"
+          },
+          {
+            "name": "Max Quantity",
+            "dataType": "int64",
+            "sourceColumn": "MaxQty"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Promotion",
+            "source": {
+              "query": "SELECT [dbo].[DimPromotion].* \t\tFROM [dbo].[DimPromotion]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimPromotion"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimPromotion].*   FROM [dbo].[DimPromotion] "
+          }
+        ]
+      },
+      {
+        "name": "Reseller",
+        "columns": [
+          {
+            "name": "ResellerKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ResellerKey"
+          },
+          {
+            "name": "GeographyKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "GeographyKey"
+          },
+          {
+            "name": "Reseller Id",
+            "dataType": "string",
+            "sourceColumn": "ResellerAlternateKey"
+          },
+          {
+            "name": "Reseller Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone"
+          },
+          {
+            "name": "Business Type",
+            "dataType": "string",
+            "sourceColumn": "BusinessType"
+          },
+          {
+            "name": "Reseller Name",
+            "dataType": "string",
+            "sourceColumn": "ResellerName",
+            "isDefaultLabel": true
+          },
+          {
+            "name": "Number Employees",
+            "dataType": "int64",
+            "sourceColumn": "NumberEmployees",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Order Frequency",
+            "dataType": "string",
+            "sourceColumn": "OrderFrequency"
+          },
+          {
+            "name": "Order Month",
+            "dataType": "int64",
+            "sourceColumn": "OrderMonth"
+          },
+          {
+            "name": "First Order Year",
+            "dataType": "int64",
+            "sourceColumn": "FirstOrderYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Last Order Year",
+            "dataType": "int64",
+            "sourceColumn": "LastOrderYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Product Line",
+            "dataType": "string",
+            "sourceColumn": "ProductLine"
+          },
+          {
+            "name": "Address Line 1",
+            "dataType": "string",
+            "sourceColumn": "AddressLine1"
+          },
+          {
+            "name": "Address Line 2",
+            "dataType": "string",
+            "sourceColumn": "AddressLine2"
+          },
+          {
+            "name": "Annual Sales",
+            "dataType": "decimal",
+            "sourceColumn": "AnnualSales",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Bank Name",
+            "dataType": "string",
+            "sourceColumn": "BankName"
+          },
+          {
+            "name": "Min Payment Type",
+            "dataType": "int64",
+            "sourceColumn": "MinPaymentType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Min Payment Amount",
+            "dataType": "decimal",
+            "sourceColumn": "MinPaymentAmount",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Annua Revenue",
+            "dataType": "decimal",
+            "sourceColumn": "AnnualRevenue",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Year Opened",
+            "dataType": "int64",
+            "sourceColumn": "YearOpened",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Reseller",
+            "source": {
+              "query": "SELECT [dbo].[DimReseller].* \t\tFROM [dbo].[DimReseller]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimReseller"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimReseller].*   FROM [dbo].[DimReseller] "
+          }
+        ]
+      },
+      {
+        "name": "Sales Territory",
+        "columns": [
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "Sales Territory Region",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryRegion",
+            "isDefaultLabel": true
+          },
+          {
+            "name": "Sales Territory Country",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryCountry"
+          },
+          {
+            "name": "Sales Territory Group",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryGroup"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Sales Territory",
+            "source": {
+              "query": "SELECT [dbo].[DimSalesTerritory].* \t\tFROM [dbo].[DimSalesTerritory]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Distinct Count Sales Orders",
+            "expression": "[Reseller Distinct Count Sales Order] + [Internet Distinct Count Sales Order]",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Total Sales",
+            "expression": "[Reseller Total Sales] + [Internet Total Sales]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Discount Amount",
+            "expression": "[Reseller Total Discount Amount] + [Internet Total Discount Amount]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Products Cost",
+            "expression": "[Reseller Total Product Cost] + [Internet Total Product Cost]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Tax Amount",
+            "expression": "[Reseller Total Tax Amount] + [Internet Total Tax Amount]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Freight",
+            "expression": "[Reseller Total Freight] + [Internet Total Freight]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Gross Profit",
+            "expression": "[Reseller Total Gross Profit] + [Internet Total Gross Profit]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Units Sold",
+            "expression": "[Reseller Total Units] + [Internet Total Units]",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Order Lines Count",
+            "expression": "[Reseller Order Lines Count] + [Internet Order Lines Count]",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Total Previous Quarter Gross Profit",
+            "expression": "CALCULATE([Total Gross Profit], PREVIOUSQUARTER('Date'[Date]))",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Current Quarter Gross Profit",
+            "expression": "TOTALQTD([Total Gross Profit],'Date'[Date])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Previous Quarter Gross Profit Proportion to QTD",
+            "expression": "[Total Previous Quarter Gross Profit]*([Days In Current Quarter to Date]/[Days In Current Quarter])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Previous Quarter Sales",
+            "expression": "CALCULATE([Total Sales], PREVIOUSQUARTER('Date'[Date]))",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Current Quarter Sales",
+            "expression": "TOTALQTD([Total Sales],'Date'[Date])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Previous Quarter Sales Proportion to QTD",
+            "expression": "[Total Previous Quarter Sales]*([Days In Current Quarter to Date]/[Days In Current Quarter])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Sales - Sales Territory sliced by Employee",
+            "expression": "[Reseller Total Sales - Sales Territory sliced by Employee] + [Internet Total Sales]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Current Quarter Sales Performance",
+            "expression": "IFERROR([Total Current Quarter Sales]/[Total Previous Quarter Sales Proportion to QTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.1",
+              "statusGraphic": "Three Symbols UnCircled Colored",
+              "statusExpression": [
+                "var x='Sales Territory'[Total Current Quarter Sales Performance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.8,-1,",
+                "\t                If(x<1.07,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "0.8"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.07"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Total Current Quarter Gross Profit Performance",
+            "expression": "IF([Total Previous Quarter Gross Profit Proportion to QTD]<>0,([Total Current Quarter Gross Profit]-[Total Previous Quarter Gross Profit Proportion to QTD])/[Total Previous Quarter Gross Profit Proportion to QTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.25",
+              "statusGraphic": "Three Symbols UnCircled Colored",
+              "statusExpression": [
+                "var x='Sales Territory'[Total Current Quarter Gross Profit Performance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.8,-1,",
+                "\t                If(x<1.03,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "0.8"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.03"
+                }
+              ]
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Territory",
+            "levels": [
+              {
+                "name": "Group",
+                "ordinal": 0,
+                "column": "Sales Territory Group"
+              },
+              {
+                "name": "Country",
+                "ordinal": 1,
+                "column": "Sales Territory Country"
+              },
+              {
+                "name": "Region",
+                "ordinal": 2,
+                "column": "Sales Territory Region"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimSalesTerritory"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[DimSalesTerritory].*   FROM [dbo].[DimSalesTerritory] "
+          }
+        ]
+      },
+      {
+        "name": "Internet Sales",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ProductKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CustomerKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PromotionKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PromotionKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CurrencyKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CurrencyKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SalesTerritoryKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Order Number",
+            "dataType": "string",
+            "sourceColumn": "SalesOrderNumber"
+          },
+          {
+            "name": "Sales Order Line Number",
+            "dataType": "int64",
+            "sourceColumn": "SalesOrderLineNumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Revision Number",
+            "dataType": "int64",
+            "sourceColumn": "RevisionNumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Order Quantity",
+            "dataType": "int64",
+            "sourceColumn": "OrderQuantity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Unit Price",
+            "dataType": "decimal",
+            "sourceColumn": "UnitPrice",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Extended Amount",
+            "dataType": "decimal",
+            "sourceColumn": "ExtendedAmount",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Unit Price Discount Pct",
+            "dataType": "double",
+            "sourceColumn": "UnitPriceDiscountPct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Discount Amount",
+            "dataType": "decimal",
+            "sourceColumn": "DiscountAmount",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Product Standard Cost",
+            "dataType": "decimal",
+            "sourceColumn": "ProductStandardCost",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Product Cost",
+            "dataType": "decimal",
+            "sourceColumn": "TotalProductCost",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Sales Amount",
+            "dataType": "decimal",
+            "sourceColumn": "SalesAmount",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Tax Amount",
+            "dataType": "decimal",
+            "sourceColumn": "TaxAmt",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Freight",
+            "dataType": "decimal",
+            "sourceColumn": "Freight",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Carrier Tracking Number",
+            "dataType": "string",
+            "sourceColumn": "CarrierTrackingNumber"
+          },
+          {
+            "name": "Customer PO Number",
+            "dataType": "string",
+            "sourceColumn": "CustomerPONumber"
+          },
+          {
+            "type": "calculated",
+            "name": "Gross Profit",
+            "dataType": "decimal",
+            "isDataTypeInferred": true,
+            "expression": "[Sales Amount]-[Total Product Cost]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Internet Sales",
+            "source": {
+              "query": "SELECT [dbo].[FactInternetSales].* FROM [dbo].[FactInternetSales]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ProductKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>85</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>OrderDateKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>99</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DueDateKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>90</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ShipDateKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>91</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CustomerKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>94</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>PromotionKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CurrencyKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>92</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SalesTerritoryKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>115</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SalesOrderNumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>120</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SalesOrderLineNumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>139</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>RevisionNumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>107</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>OrderQuantity</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>100</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>UnitPrice</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>72</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ExtendedAmount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>113</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>UnitPriceDiscountPct</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>128</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DiscountAmount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>108</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ProductStandardCost</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>133</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TotalProductCost</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>113</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SalesAmount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>92</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TaxAmt</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>67</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Freight</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>64</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CarrierTrackingNumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>140</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CustomerPONumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>127</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ProductKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>OrderDateKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DueDateKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ShipDateKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CustomerKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>PromotionKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CurrencyKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SalesTerritoryKey</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SalesOrderNumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SalesOrderLineNumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>RevisionNumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>OrderQuantity</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>11</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>UnitPrice</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ExtendedAmount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>UnitPriceDiscountPct</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>14</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DiscountAmount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>15</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ProductStandardCost</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>16</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TotalProductCost</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>17</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SalesAmount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>18</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TaxAmt</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>19</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Freight</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>20</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CarrierTrackingNumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>21</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CustomerPONumber</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>22</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked />",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Internet Distinct Count Sales Order",
+            "expression": "DISTINCTCOUNT([Sales Order Number])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Internet Total Sales",
+            "expression": "SUM([Sales Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Discount Amount",
+            "expression": "SUM([Discount Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Product Cost",
+            "expression": "SUM([Total Product Cost])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Tax Amount",
+            "expression": "SUM([Tax Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Freight",
+            "expression": "SUM([Freight])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Gross Profit",
+            "expression": "SUM([Gross Profit])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Units",
+            "expression": "SUM([Order Quantity])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Internet Order Lines Count",
+            "expression": "COUNT([Sales Order Line Number])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Internet Previous Quarter Gross Profit",
+            "expression": "CALCULATE([Internet Total Gross Profit],PREVIOUSQUARTER('Date'[Date]))",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Current Quarter Gross Profit",
+            "expression": "TOTALQTD([Internet Total Gross Profit],'Date'[Date])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Previous Quarter Gross Profit Proportion to QTD",
+            "expression": "[Internet Previous Quarter Gross Profit]*([Days In Current Quarter to Date]/[Days In Current Quarter])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Previous Quarter Sales",
+            "expression": "CALCULATE([Internet Total Sales],PREVIOUSQUARTER('Date'[Date]))",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Current Quarter Sales",
+            "expression": "TOTALQTD([Internet Total Sales],'Date'[Date])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Previous Quarter Sales Proportion to QTD",
+            "expression": "[Internet Previous Quarter Sales]*([Days In Current Quarter]/[Days In Current Quarter])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Current Quarter Sales Performance",
+            "expression": "IFERROR([Internet Current Quarter Sales]/[Internet Previous Quarter Sales Proportion to QTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.1",
+              "statusGraphic": "Three Symbols UnCircled Colored",
+              "statusExpression": [
+                "var x='Internet Sales'[Internet Current Quarter Sales Performance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<1,-1,",
+                "\t                If(x<1.07,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "1"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.07"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Internet Current Quarter Gross Profit Performance",
+            "expression": "IF([Internet Previous Quarter Gross Profit Proportion to QTD]<>0,([Internet Current Quarter Gross Profit]-[Internet Previous Quarter Gross Profit Proportion to QTD])/[Internet Previous Quarter Gross Profit Proportion to QTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.25",
+              "statusGraphic": "Three Symbols UnCircled Colored",
+              "statusExpression": [
+                "var x='Internet Sales'[Internet Current Quarter Gross Profit Performance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.8,-1,",
+                "\t                If(x<1.03,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "0.8"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.03"
+                }
+              ]
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FactInternetSales"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[FactInternetSales].*   FROM [dbo].[FactInternetSales] "
+          }
+        ]
+      },
+      {
+        "name": "Reseller Sales",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "ResellerKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ResellerKey"
+          },
+          {
+            "name": "EmployeeKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "EmployeeKey"
+          },
+          {
+            "name": "PromotionKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PromotionKey"
+          },
+          {
+            "name": "CurrencyKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "Sales Order Number",
+            "dataType": "string",
+            "sourceColumn": "SalesOrderNumber"
+          },
+          {
+            "name": "Sales Order Line Number",
+            "dataType": "int64",
+            "sourceColumn": "SalesOrderLineNumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Revision Number",
+            "dataType": "int64",
+            "sourceColumn": "RevisionNumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Order Quantity",
+            "dataType": "int64",
+            "sourceColumn": "OrderQuantity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Unit Price",
+            "dataType": "decimal",
+            "sourceColumn": "UnitPrice",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Extended Amount",
+            "dataType": "decimal",
+            "sourceColumn": "ExtendedAmount",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Unit Price Discount Pct",
+            "dataType": "double",
+            "sourceColumn": "UnitPriceDiscountPct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Discount Amount",
+            "dataType": "decimal",
+            "sourceColumn": "DiscountAmount",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Product Standard Cost",
+            "dataType": "decimal",
+            "sourceColumn": "ProductStandardCost",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Product Cost",
+            "dataType": "decimal",
+            "sourceColumn": "TotalProductCost",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Sales Amount",
+            "dataType": "decimal",
+            "sourceColumn": "SalesAmount",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Tax Amount",
+            "dataType": "decimal",
+            "sourceColumn": "TaxAmt",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Freight",
+            "dataType": "decimal",
+            "sourceColumn": "Freight",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Carrier Tracking Number",
+            "dataType": "string",
+            "sourceColumn": "CarrierTrackingNumber"
+          },
+          {
+            "name": "Reseller PO Number",
+            "dataType": "string",
+            "sourceColumn": "CustomerPONumber"
+          },
+          {
+            "type": "calculated",
+            "name": "Gross Profit",
+            "dataType": "decimal",
+            "isDataTypeInferred": true,
+            "expression": "[Sales Amount]-[Total Product Cost]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Reseller Sales",
+            "source": {
+              "query": "SELECT [dbo].[FactResellerSales].* FROM [dbo].[FactResellerSales]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [dbo].[FactResellerSales].* FROM [dbo].[FactResellerSales]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Reseller Distinct Count Sales Order",
+            "expression": "DISTINCTCOUNT([Sales Order Number])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Reseller Total Sales",
+            "expression": "SUM([Sales Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Total Discount Amount",
+            "expression": "SUM([Discount Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Total Product Cost",
+            "expression": "SUM([Total Product Cost])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Total Tax Amount",
+            "expression": "SUM([Tax Amount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Total Freight",
+            "expression": "SUM([Freight])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Total Gross Profit",
+            "expression": "SUM([Gross Profit])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Total Units",
+            "expression": "SUM([Order Quantity])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Reseller Order Lines Count",
+            "expression": "COUNT([Sales Order Line Number])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Reseller Previous Quarter Gross Profit",
+            "expression": "CALCULATE([Reseller Total Gross Profit],PREVIOUSQUARTER('Date'[Date]))",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Current Quarter Gross Profit",
+            "expression": "TOTALQTD([Reseller Total Gross Profit],'Date'[Date])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Previous Quarter Gross Profit Proportion to QTD",
+            "expression": "[Reseller Previous Quarter Gross Profit]*([Days In Current Quarter to Date]/[Days In Current Quarter])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Previous Quarter Sales",
+            "expression": "CALCULATE([Reseller Total Sales],PREVIOUSQUARTER('Date'[Date]))",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Current Quarter Sales",
+            "expression": "TOTALQTD([Reseller Total Sales],'Date'[Date])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Previous Quarter Sales Proportion to QTD",
+            "expression": "[Reseller Previous Quarter Sales]*([Days In Current Quarter to Date]/[Days In Current Quarter])"
+          },
+          {
+            "name": "Reseller Total Sales - Sales Territory sliced by Employee",
+            "expression": "CALCULATE(SUM('Reseller Sales'[Sales Amount]),USERELATIONSHIP(Employee[EmployeeKey],'Reseller Sales'[EmployeeKey]),USERELATIONSHIP('Sales Territory'[SalesTerritoryKey],Employee[SalesTerritoryKey]))",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Total Sales - Sales Territory sliced by Reseller",
+            "expression": "CALCULATE(SUM('Reseller Sales'[Sales Amount]), USERELATIONSHIP(Reseller[ResellerKey], 'Reseller Sales'[ResellerKey]), USERELATIONSHIP(Geography[GeographyKey], Reseller[GeographyKey]), USERELATIONSHIP('Sales Territory'[SalesTerritoryKey], Geography[SalesTerritoryKey]))",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Current Quarter Sales Performance",
+            "expression": "IFERROR([Reseller Current Quarter Sales]/[Reseller Previous Quarter Sales Proportion to QTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.1",
+              "statusGraphic": "Three Symbols UnCircled Colored",
+              "statusExpression": [
+                "var x='Reseller Sales'[Reseller Current Quarter Sales Performance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.8,-1,",
+                "\t                If(x<1.07,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "0.8"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.07"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Reseller Current Quarter Gross Profit Performance",
+            "expression": "IF([Reseller Previous Quarter Gross Profit Proportion to QTD]<>0,([Reseller Current Quarter Gross Profit]-[Reseller Previous Quarter Gross Profit Proportion to QTD])/[Reseller Previous Quarter Gross Profit Proportion to QTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.25",
+              "statusGraphic": "Three Symbols UnCircled Colored",
+              "statusExpression": [
+                "var x='Reseller Sales'[Reseller Current Quarter Gross Profit Performance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.8,-1,",
+                "\t                If(x<1.03,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "0.8"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.03"
+                }
+              ]
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FactResellerSales"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[FactResellerSales].*   FROM [dbo].[FactResellerSales] "
+          }
+        ]
+      },
+      {
+        "name": "Sales Quota",
+        "columns": [
+          {
+            "name": "SalesQuotaKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SalesQuotaKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EmployeeKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "EmployeeKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DateKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Year",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Quarter",
+            "dataType": "int64",
+            "sourceColumn": "CalendarQuarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Sales Amount Quota",
+            "dataType": "decimal",
+            "sourceColumn": "SalesAmountQuota",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\" xmlns=\"\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Sales Quota",
+            "source": {
+              "query": "SELECT [dbo].[FactSalesQuota].* \t\tFROM [dbo].[FactSalesQuota]",
+              "dataSource": "SqlServer localhost"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization"
+              },
+              {
+                "name": "TableWidgetSerialization"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FactSalesQuota"
+          },
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "      SELECT [dbo].[FactSalesQuota].*   FROM [dbo].[FactSalesQuota] "
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "2c5177ff-b673-48e0-9168-821672c57e5e",
+        "fromTable": "Customer",
+        "fromColumn": "GeographyKey",
+        "toTable": "Geography",
+        "toColumn": "GeographyKey"
+      },
+      {
+        "name": "e278ab89-4b93-42e3-b40c-636fdd8d681c",
+        "fromTable": "Employee",
+        "fromColumn": "SalesTerritoryKey",
+        "toTable": "Sales Territory",
+        "toColumn": "SalesTerritoryKey",
+        "isActive": false
+      },
+      {
+        "name": "27dae602-f0b8-43f8-940b-43fb315458bb",
+        "fromTable": "Geography",
+        "fromColumn": "SalesTerritoryKey",
+        "toTable": "Sales Territory",
+        "toColumn": "SalesTerritoryKey",
+        "isActive": false
+      },
+      {
+        "name": "9b8024a2-e51d-4a2b-9a8f-6a2199d1d2ea",
+        "fromTable": "Product",
+        "fromColumn": "ProductSubcategoryKey",
+        "toTable": "Product Subcategory",
+        "toColumn": "ProductSubcategoryKey"
+      },
+      {
+        "name": "46425cb9-382b-4dfb-9b79-63bc5082c42b",
+        "fromTable": "Product Subcategory",
+        "fromColumn": "ProductCategoryKey",
+        "toTable": "Product Category",
+        "toColumn": "ProductCategoryKey"
+      },
+      {
+        "name": "b32d6ef8-a309-4c10-8d36-0f0e2ae84901",
+        "fromTable": "Reseller",
+        "fromColumn": "GeographyKey",
+        "toTable": "Geography",
+        "toColumn": "GeographyKey"
+      },
+      {
+        "name": "877c4e4a-6f61-43c8-ae8b-b748a6400407",
+        "fromTable": "Internet Sales",
+        "fromColumn": "CurrencyKey",
+        "toTable": "Currency",
+        "toColumn": "CurrencyKey"
+      },
+      {
+        "name": "90d94b82-0243-4632-b9f7-99de63279961",
+        "fromTable": "Internet Sales",
+        "fromColumn": "CustomerKey",
+        "toTable": "Customer",
+        "toColumn": "CustomerKey"
+      },
+      {
+        "name": "a5016faf-9af5-4750-92ff-505d05aefe68",
+        "fromTable": "Internet Sales",
+        "fromColumn": "ProductKey",
+        "toTable": "Product",
+        "toColumn": "ProductKey"
+      },
+      {
+        "name": "b3d9edf1-1e10-436b-b870-80029b0ee4f3",
+        "fromTable": "Internet Sales",
+        "fromColumn": "PromotionKey",
+        "toTable": "Promotion",
+        "toColumn": "PromotionKey"
+      },
+      {
+        "name": "d9761f6e-1fec-476d-9eee-9e1511044619",
+        "fromTable": "Internet Sales",
+        "fromColumn": "SalesTerritoryKey",
+        "toTable": "Sales Territory",
+        "toColumn": "SalesTerritoryKey"
+      },
+      {
+        "name": "1b277ca4-d6fc-4366-b164-2fd3c56cfd24",
+        "fromTable": "Reseller Sales",
+        "fromColumn": "CurrencyKey",
+        "toTable": "Currency",
+        "toColumn": "CurrencyKey"
+      },
+      {
+        "name": "262def50-5047-491a-8fc6-e96a9d66a80b",
+        "fromTable": "Reseller Sales",
+        "fromColumn": "EmployeeKey",
+        "toTable": "Employee",
+        "toColumn": "EmployeeKey"
+      },
+      {
+        "name": "adbcdd01-4156-4b47-9c94-5f6283c9c20a",
+        "fromTable": "Reseller Sales",
+        "fromColumn": "ProductKey",
+        "toTable": "Product",
+        "toColumn": "ProductKey"
+      },
+      {
+        "name": "03b67804-b82a-433a-9589-f768a6eb3945",
+        "fromTable": "Reseller Sales",
+        "fromColumn": "PromotionKey",
+        "toTable": "Promotion",
+        "toColumn": "PromotionKey"
+      },
+      {
+        "name": "431b1361-7b09-4540-91d3-fda884108451",
+        "fromTable": "Reseller Sales",
+        "fromColumn": "ResellerKey",
+        "toTable": "Reseller",
+        "toColumn": "ResellerKey"
+      },
+      {
+        "name": "b62a7abc-f954-41a1-ac0a-bce7fdd5eaa7",
+        "fromTable": "Reseller Sales",
+        "fromColumn": "SalesTerritoryKey",
+        "toTable": "Sales Territory",
+        "toColumn": "SalesTerritoryKey"
+      },
+      {
+        "name": "39981e17-197f-4647-a8d8-850cbe2aea09",
+        "fromTable": "Sales Quota",
+        "fromColumn": "DateKey",
+        "toTable": "Date",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "d96cf292-44da-4a47-837c-173bf1f49c18",
+        "fromTable": "Sales Quota",
+        "fromColumn": "EmployeeKey",
+        "toTable": "Employee",
+        "toColumn": "EmployeeKey"
+      }
+    ],
+    "perspectives": [
+      {
+        "name": "Inventory",
+        "tables": [
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "Month Name"
+              },
+              {
+                "name": "Calendar Quarter"
+              },
+              {
+                "name": "Month"
+              },
+              {
+                "name": "Week Of Year"
+              },
+              {
+                "name": "Calendar Year"
+              },
+              {
+                "name": "Fiscal Quarter"
+              },
+              {
+                "name": "Day Of Month"
+              },
+              {
+                "name": "Fiscal Year"
+              },
+              {
+                "name": "Day Name Of Week"
+              },
+              {
+                "name": "Day Of Year"
+              },
+              {
+                "name": "DateKey"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "Fiscal Semester"
+              },
+              {
+                "name": "Day Number Of Week"
+              },
+              {
+                "name": "Calendar Semester"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Days In Current Quarter to Date"
+              },
+              {
+                "name": "Days In Current Quarter"
+              }
+            ]
+          },
+          {
+            "name": "Product",
+            "columns": [
+              {
+                "name": "Product SubCategory Name"
+              },
+              {
+                "name": "Style"
+              },
+              {
+                "name": "Model Name"
+              },
+              {
+                "name": "Product Name"
+              },
+              {
+                "name": "Product Start Date"
+              },
+              {
+                "name": "Weight Unit Code"
+              },
+              {
+                "name": "Safety Stock Level"
+              },
+              {
+                "name": "Product Id"
+              },
+              {
+                "name": "Standard Cost"
+              },
+              {
+                "name": "Color"
+              },
+              {
+                "name": "Days To Manufacture"
+              },
+              {
+                "name": "Dealer Price"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "Size"
+              },
+              {
+                "name": "Is Finished Goods"
+              },
+              {
+                "name": "Description"
+              },
+              {
+                "name": "Product Line"
+              },
+              {
+                "name": "Size Unit Code"
+              },
+              {
+                "name": "List Price"
+              },
+              {
+                "name": "Class"
+              },
+              {
+                "name": "Size Range"
+              },
+              {
+                "name": "Reorder Point"
+              },
+              {
+                "name": "Product Status"
+              },
+              {
+                "name": "Weight"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "Product Category Name"
+              },
+              {
+                "name": "Product End Date"
+              }
+            ]
+          },
+          {
+            "name": "Product Subcategory",
+            "columns": [
+              {
+                "name": "Product Subcategory Name"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "ProductCategoryKey"
+              }
+            ]
+          },
+          {
+            "name": "Product Category",
+            "columns": [
+              {
+                "name": "Product Category Name"
+              },
+              {
+                "name": "ProductCategoryKey"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Internet Operation",
+        "tables": [
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "Month Name"
+              },
+              {
+                "name": "Calendar Quarter"
+              },
+              {
+                "name": "Month"
+              },
+              {
+                "name": "Week Of Year"
+              },
+              {
+                "name": "Calendar Year"
+              },
+              {
+                "name": "Fiscal Quarter"
+              },
+              {
+                "name": "Day Of Month"
+              },
+              {
+                "name": "Fiscal Year"
+              },
+              {
+                "name": "Day Name Of Week"
+              },
+              {
+                "name": "Day Of Year"
+              },
+              {
+                "name": "DateKey"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "Fiscal Semester"
+              },
+              {
+                "name": "Day Number Of Week"
+              },
+              {
+                "name": "Calendar Semester"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Days In Current Quarter to Date"
+              },
+              {
+                "name": "Days In Current Quarter"
+              }
+            ]
+          },
+          {
+            "name": "Internet Sales",
+            "columns": [
+              {
+                "name": "Carrier Tracking Number"
+              },
+              {
+                "name": "Sales Order Line Number"
+              },
+              {
+                "name": "CustomerKey"
+              },
+              {
+                "name": "Gross Profit"
+              },
+              {
+                "name": "Sales Order Number"
+              },
+              {
+                "name": "Discount Amount"
+              },
+              {
+                "name": "Sales Amount"
+              },
+              {
+                "name": "PromotionKey"
+              },
+              {
+                "name": "Customer PO Number"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "Unit Price"
+              },
+              {
+                "name": "Freight"
+              },
+              {
+                "name": "Total Product Cost"
+              },
+              {
+                "name": "CurrencyKey"
+              },
+              {
+                "name": "Product Standard Cost"
+              },
+              {
+                "name": "Extended Amount"
+              },
+              {
+                "name": "Order Quantity"
+              },
+              {
+                "name": "Revision Number"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "Tax Amount"
+              },
+              {
+                "name": "Unit Price Discount Pct"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Internet Total Gross Profit"
+              },
+              {
+                "name": "Internet Previous Quarter Sales Proportion to QTD"
+              },
+              {
+                "name": "Internet Current Quarter Gross Profit Performance"
+              },
+              {
+                "name": "Internet Current Quarter Sales"
+              },
+              {
+                "name": "Internet Current Quarter Sales Performance"
+              },
+              {
+                "name": "Internet Total Product Cost"
+              },
+              {
+                "name": "Internet Distinct Count Sales Order"
+              },
+              {
+                "name": "Internet Previous Quarter Gross Profit"
+              },
+              {
+                "name": "Internet Total Sales"
+              },
+              {
+                "name": "Internet Previous Quarter Gross Profit Proportion to QTD"
+              },
+              {
+                "name": "Internet Order Lines Count"
+              },
+              {
+                "name": "Internet Previous Quarter Sales"
+              },
+              {
+                "name": "Internet Total Freight"
+              },
+              {
+                "name": "Internet Total Units"
+              },
+              {
+                "name": "Internet Total Tax Amount"
+              },
+              {
+                "name": "Internet Current Quarter Gross Profit"
+              },
+              {
+                "name": "Internet Total Discount Amount"
+              }
+            ]
+          },
+          {
+            "name": "Sales Territory",
+            "columns": [
+              {
+                "name": "Sales Territory Region"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "Sales Territory Country"
+              },
+              {
+                "name": "Sales Territory Group"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Total Gross Profit"
+              },
+              {
+                "name": "Distinct Count Sales Orders"
+              },
+              {
+                "name": "Total Sales - Sales Territory sliced by Employee"
+              },
+              {
+                "name": "Total Current Quarter Sales"
+              },
+              {
+                "name": "Total Previous Quarter Sales"
+              },
+              {
+                "name": "Total Tax Amount"
+              },
+              {
+                "name": "Total Current Quarter Sales Performance"
+              },
+              {
+                "name": "Total Freight"
+              },
+              {
+                "name": "Total Sales"
+              },
+              {
+                "name": "Total Previous Quarter Gross Profit Proportion to QTD"
+              },
+              {
+                "name": "Order Lines Count"
+              },
+              {
+                "name": "Total Discount Amount"
+              },
+              {
+                "name": "Total Previous Quarter Sales Proportion to QTD"
+              },
+              {
+                "name": "Total Products Cost"
+              },
+              {
+                "name": "Total Units Sold"
+              },
+              {
+                "name": "Total Current Quarter Gross Profit Performance"
+              },
+              {
+                "name": "Total Current Quarter Gross Profit"
+              },
+              {
+                "name": "Total Previous Quarter Gross Profit"
+              }
+            ]
+          },
+          {
+            "name": "Product",
+            "columns": [
+              {
+                "name": "Product SubCategory Name"
+              },
+              {
+                "name": "Style"
+              },
+              {
+                "name": "Model Name"
+              },
+              {
+                "name": "Product Name"
+              },
+              {
+                "name": "Product Start Date"
+              },
+              {
+                "name": "Weight Unit Code"
+              },
+              {
+                "name": "Safety Stock Level"
+              },
+              {
+                "name": "Product Id"
+              },
+              {
+                "name": "Standard Cost"
+              },
+              {
+                "name": "Color"
+              },
+              {
+                "name": "Days To Manufacture"
+              },
+              {
+                "name": "Dealer Price"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "Size"
+              },
+              {
+                "name": "Is Finished Goods"
+              },
+              {
+                "name": "Description"
+              },
+              {
+                "name": "Product Line"
+              },
+              {
+                "name": "Size Unit Code"
+              },
+              {
+                "name": "List Price"
+              },
+              {
+                "name": "Class"
+              },
+              {
+                "name": "Size Range"
+              },
+              {
+                "name": "Reorder Point"
+              },
+              {
+                "name": "Product Status"
+              },
+              {
+                "name": "Weight"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "Product Category Name"
+              },
+              {
+                "name": "Product End Date"
+              }
+            ]
+          },
+          {
+            "name": "Promotion",
+            "columns": [
+              {
+                "name": "Promotion Name"
+              },
+              {
+                "name": "Max Quantity"
+              },
+              {
+                "name": "Promotion Type"
+              },
+              {
+                "name": "Promotion Start Date"
+              },
+              {
+                "name": "Min Quantity"
+              },
+              {
+                "name": "Promotion Category"
+              },
+              {
+                "name": "DiscountPct"
+              },
+              {
+                "name": "PromotionKey"
+              },
+              {
+                "name": "Promotion End Date"
+              }
+            ]
+          },
+          {
+            "name": "Product Subcategory",
+            "columns": [
+              {
+                "name": "Product Subcategory Name"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "ProductCategoryKey"
+              }
+            ]
+          },
+          {
+            "name": "Geography",
+            "columns": [
+              {
+                "name": "City"
+              },
+              {
+                "name": "State Province Name"
+              },
+              {
+                "name": "Country Region Code"
+              },
+              {
+                "name": "State Province Code"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "Country Region Name"
+              },
+              {
+                "name": "Postal Code"
+              }
+            ]
+          },
+          {
+            "name": "Customer",
+            "columns": [
+              {
+                "name": "CustomerKey"
+              },
+              {
+                "name": "Number of Children At Home"
+              },
+              {
+                "name": "Middle Name"
+              },
+              {
+                "name": "Name Style"
+              },
+              {
+                "name": "Date Of First Purchase"
+              },
+              {
+                "name": "Address Line 2"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "Yearly Income"
+              },
+              {
+                "name": "Marital Status"
+              },
+              {
+                "name": "Phone"
+              },
+              {
+                "name": "Email Address"
+              },
+              {
+                "name": "Gender"
+              },
+              {
+                "name": "Occupation"
+              },
+              {
+                "name": "Address Line 1"
+              },
+              {
+                "name": "Total Cars Owned"
+              },
+              {
+                "name": "Total Children"
+              },
+              {
+                "name": "Suffix"
+              },
+              {
+                "name": "First Name"
+              },
+              {
+                "name": "Birth Date"
+              },
+              {
+                "name": "Education"
+              },
+              {
+                "name": "Last Name"
+              },
+              {
+                "name": "Commute Distance"
+              },
+              {
+                "name": "Customer Id"
+              },
+              {
+                "name": "Title"
+              },
+              {
+                "name": "Owns House"
+              }
+            ]
+          },
+          {
+            "name": "Currency",
+            "columns": [
+              {
+                "name": "CurrencyKey"
+              },
+              {
+                "name": "Currency Code"
+              },
+              {
+                "name": "CurrencyName"
+              }
+            ]
+          },
+          {
+            "name": "Product Category",
+            "columns": [
+              {
+                "name": "Product Category Name"
+              },
+              {
+                "name": "ProductCategoryKey"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Reseller Operation",
+        "tables": [
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "Month Name"
+              },
+              {
+                "name": "Calendar Quarter"
+              },
+              {
+                "name": "Month"
+              },
+              {
+                "name": "Week Of Year"
+              },
+              {
+                "name": "Calendar Year"
+              },
+              {
+                "name": "Fiscal Quarter"
+              },
+              {
+                "name": "Day Of Month"
+              },
+              {
+                "name": "Fiscal Year"
+              },
+              {
+                "name": "Day Name Of Week"
+              },
+              {
+                "name": "Day Of Year"
+              },
+              {
+                "name": "DateKey"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "Fiscal Semester"
+              },
+              {
+                "name": "Day Number Of Week"
+              },
+              {
+                "name": "Calendar Semester"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Days In Current Quarter to Date"
+              },
+              {
+                "name": "Days In Current Quarter"
+              }
+            ]
+          },
+          {
+            "name": "Reseller Sales",
+            "columns": [
+              {
+                "name": "Sales Order Line Number"
+              },
+              {
+                "name": "Carrier Tracking Number"
+              },
+              {
+                "name": "Gross Profit"
+              },
+              {
+                "name": "Sales Order Number"
+              },
+              {
+                "name": "Discount Amount"
+              },
+              {
+                "name": "Sales Amount"
+              },
+              {
+                "name": "PromotionKey"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "Reseller PO Number"
+              },
+              {
+                "name": "Unit Price"
+              },
+              {
+                "name": "Freight"
+              },
+              {
+                "name": "ResellerKey"
+              },
+              {
+                "name": "EmployeeKey"
+              },
+              {
+                "name": "Total Product Cost"
+              },
+              {
+                "name": "CurrencyKey"
+              },
+              {
+                "name": "Product Standard Cost"
+              },
+              {
+                "name": "Extended Amount"
+              },
+              {
+                "name": "Order Quantity"
+              },
+              {
+                "name": "Revision Number"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "Tax Amount"
+              },
+              {
+                "name": "Unit Price Discount Pct"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Reseller Total Tax Amount"
+              },
+              {
+                "name": "Reseller Distinct Count Sales Order"
+              },
+              {
+                "name": "Reseller Previous Quarter Gross Profit Proportion to QTD"
+              },
+              {
+                "name": "Reseller Total Discount Amount"
+              },
+              {
+                "name": "Reseller Current Quarter Sales"
+              },
+              {
+                "name": "Reseller Total Gross Profit"
+              },
+              {
+                "name": "Reseller Order Lines Count"
+              },
+              {
+                "name": "Reseller Previous Quarter Sales Proportion to QTD"
+              },
+              {
+                "name": "Reseller Total Product Cost"
+              },
+              {
+                "name": "Reseller Previous Quarter Sales"
+              },
+              {
+                "name": "Reseller Total Sales"
+              },
+              {
+                "name": "Reseller Current Quarter Gross Profit Performance"
+              },
+              {
+                "name": "Reseller Current Quarter Sales Performance"
+              },
+              {
+                "name": "Reseller Total Units"
+              },
+              {
+                "name": "Reseller Total Freight"
+              },
+              {
+                "name": "Reseller Total Sales - Sales Territory sliced by Reseller"
+              },
+              {
+                "name": "Reseller Total Sales - Sales Territory sliced by Employee"
+              },
+              {
+                "name": "Reseller Current Quarter Gross Profit"
+              },
+              {
+                "name": "Reseller Previous Quarter Gross Profit"
+              }
+            ]
+          },
+          {
+            "name": "Sales Territory",
+            "columns": [
+              {
+                "name": "Sales Territory Region"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "Sales Territory Country"
+              },
+              {
+                "name": "Sales Territory Group"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Total Gross Profit"
+              },
+              {
+                "name": "Distinct Count Sales Orders"
+              },
+              {
+                "name": "Total Previous Quarter Sales"
+              },
+              {
+                "name": "Total Previous Quarter Gross Profit Proportion to QTD"
+              },
+              {
+                "name": "Order Lines Count"
+              },
+              {
+                "name": "Total Discount Amount"
+              },
+              {
+                "name": "Total Previous Quarter Sales Proportion to QTD"
+              },
+              {
+                "name": "Total Products Cost"
+              },
+              {
+                "name": "Total Units Sold"
+              },
+              {
+                "name": "Total Current Quarter Gross Profit Performance"
+              },
+              {
+                "name": "Total Current Quarter Gross Profit"
+              },
+              {
+                "name": "Total Previous Quarter Gross Profit"
+              },
+              {
+                "name": "Total Sales - Sales Territory sliced by Employee"
+              },
+              {
+                "name": "Total Current Quarter Sales"
+              },
+              {
+                "name": "Total Tax Amount"
+              },
+              {
+                "name": "Total Current Quarter Sales Performance"
+              },
+              {
+                "name": "Total Freight"
+              },
+              {
+                "name": "Total Sales"
+              }
+            ]
+          },
+          {
+            "name": "Product",
+            "columns": [
+              {
+                "name": "Product SubCategory Name"
+              },
+              {
+                "name": "Style"
+              },
+              {
+                "name": "Model Name"
+              },
+              {
+                "name": "Product Name"
+              },
+              {
+                "name": "Product Start Date"
+              },
+              {
+                "name": "Weight Unit Code"
+              },
+              {
+                "name": "Safety Stock Level"
+              },
+              {
+                "name": "Product Id"
+              },
+              {
+                "name": "Standard Cost"
+              },
+              {
+                "name": "Color"
+              },
+              {
+                "name": "Days To Manufacture"
+              },
+              {
+                "name": "Dealer Price"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "Size"
+              },
+              {
+                "name": "Is Finished Goods"
+              },
+              {
+                "name": "Description"
+              },
+              {
+                "name": "Product Line"
+              },
+              {
+                "name": "Size Unit Code"
+              },
+              {
+                "name": "List Price"
+              },
+              {
+                "name": "Class"
+              },
+              {
+                "name": "Size Range"
+              },
+              {
+                "name": "Reorder Point"
+              },
+              {
+                "name": "Product Status"
+              },
+              {
+                "name": "Weight"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "Product Category Name"
+              },
+              {
+                "name": "Product End Date"
+              }
+            ]
+          },
+          {
+            "name": "Promotion",
+            "columns": [
+              {
+                "name": "Promotion Name"
+              },
+              {
+                "name": "Max Quantity"
+              },
+              {
+                "name": "Promotion Type"
+              },
+              {
+                "name": "Promotion Start Date"
+              },
+              {
+                "name": "Min Quantity"
+              },
+              {
+                "name": "Promotion Category"
+              },
+              {
+                "name": "DiscountPct"
+              },
+              {
+                "name": "PromotionKey"
+              },
+              {
+                "name": "Promotion End Date"
+              }
+            ]
+          },
+          {
+            "name": "Product Subcategory",
+            "columns": [
+              {
+                "name": "Product Subcategory Name"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "ProductCategoryKey"
+              }
+            ]
+          },
+          {
+            "name": "Employee",
+            "columns": [
+              {
+                "name": "ParentEmployeeKey"
+              },
+              {
+                "name": "Middle Name"
+              },
+              {
+                "name": "NameStyle"
+              },
+              {
+                "name": "Hire Date"
+              },
+              {
+                "name": "Marital Status"
+              },
+              {
+                "name": "Pay Frequency"
+              },
+              {
+                "name": "Phone"
+              },
+              {
+                "name": "Email"
+              },
+              {
+                "name": "Gender"
+              },
+              {
+                "name": "Vacation Hours"
+              },
+              {
+                "name": "Employee Id"
+              },
+              {
+                "name": "Is Current"
+              },
+              {
+                "name": "Login"
+              },
+              {
+                "name": "First Name"
+              },
+              {
+                "name": "Is Salaried"
+              },
+              {
+                "name": "Base Rate"
+              },
+              {
+                "name": "Birth Date"
+              },
+              {
+                "name": "Sick Leave Hours"
+              },
+              {
+                "name": "Last Name"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "Status"
+              },
+              {
+                "name": "Emergency Contact Name"
+              },
+              {
+                "name": "Title"
+              },
+              {
+                "name": "Department Name"
+              },
+              {
+                "name": "Emergency Contact Phone"
+              },
+              {
+                "name": "EmployeeKey"
+              },
+              {
+                "name": "End Date"
+              },
+              {
+                "name": "Is Sales Person"
+              },
+              {
+                "name": "Start Date"
+              }
+            ]
+          },
+          {
+            "name": "Geography",
+            "columns": [
+              {
+                "name": "City"
+              },
+              {
+                "name": "State Province Name"
+              },
+              {
+                "name": "Country Region Code"
+              },
+              {
+                "name": "State Province Code"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "Country Region Name"
+              },
+              {
+                "name": "Postal Code"
+              }
+            ]
+          },
+          {
+            "name": "Reseller",
+            "columns": [
+              {
+                "name": "Year Opened"
+              },
+              {
+                "name": "Order Month"
+              },
+              {
+                "name": "Business Type"
+              },
+              {
+                "name": "Annual Sales"
+              },
+              {
+                "name": "Number Employees"
+              },
+              {
+                "name": "Reseller Id"
+              },
+              {
+                "name": "Address Line 2"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "Reseller Phone"
+              },
+              {
+                "name": "ResellerKey"
+              },
+              {
+                "name": "Min Payment Type"
+              },
+              {
+                "name": "Address Line 1"
+              },
+              {
+                "name": "Bank Name"
+              },
+              {
+                "name": "Annua Revenue"
+              },
+              {
+                "name": "Reseller Name"
+              },
+              {
+                "name": "Min Payment Amount"
+              },
+              {
+                "name": "Product Line"
+              },
+              {
+                "name": "Last Order Year"
+              },
+              {
+                "name": "First Order Year"
+              },
+              {
+                "name": "Order Frequency"
+              }
+            ]
+          },
+          {
+            "name": "Sales Quota",
+            "columns": [
+              {
+                "name": "Calendar Quarter"
+              },
+              {
+                "name": "Sales Amount Quota"
+              },
+              {
+                "name": "Calendar Year"
+              },
+              {
+                "name": "DateKey"
+              },
+              {
+                "name": "EmployeeKey"
+              },
+              {
+                "name": "SalesQuotaKey"
+              }
+            ]
+          },
+          {
+            "name": "Currency",
+            "columns": [
+              {
+                "name": "CurrencyKey"
+              },
+              {
+                "name": "Currency Code"
+              },
+              {
+                "name": "CurrencyName"
+              }
+            ]
+          },
+          {
+            "name": "Product Category",
+            "columns": [
+              {
+                "name": "Product Category Name"
+              },
+              {
+                "name": "ProductCategoryKey"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "name": "Users",
+        "description": "All allowed users to query the model",
+        "modelPermission": "read"
+      },
+      {
+        "name": "Admins",
+        "description": "All administrators",
+        "modelPermission": "administrator"
+      },
+      {
+        "name": "Analysts",
+        "description": "All users responsible for the status of the model",
+        "modelPermission": "readRefresh"
+      },
+      {
+        "name": "Operators",
+        "description": "All users responsible for updating the data",
+        "modelPermission": "refresh"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
