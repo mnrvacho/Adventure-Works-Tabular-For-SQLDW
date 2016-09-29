@@ -25,7 +25,7 @@
     <DeploymentServerName>asazure://westcentralus.asazure.windows.net/chwade000</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
     <DeploymentServerVersion>Version_11_0</DeploymentServerVersion>
-    <DeploymentServerDatabase>AW Tabular Model SQL 2014</DeploymentServerDatabase>
+    <DeploymentServerDatabase>AdventureWorks Tabular Model</DeploymentServerDatabase>
     <DeploymentServerCubeName>Model</DeploymentServerCubeName>
     <DeploymentOptionProcessing>Default</DeploymentOptionProcessing>
     <DeploymentOptionTransactionalDeployment>False</DeploymentOptionTransactionalDeployment>
