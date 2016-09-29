@@ -3103,59 +3103,7 @@
                 "\"Sales Territory Group\", STRING,",
                 "{",
                 "\t{\"sqlcl01@microsoft.com\",\"Europe\"},",
-                "\t{\"sqlcl02@microsoft.com\",\"Europe\"},",
                 "\t{\"sqlcl02@microsoft.com\",\"North America\"}",
-                "}",
-                ")"
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "name": "Sales Territory Group",
-        "columns": [
-          {
-            "type": "calculatedTableColumn",
-            "name": "Sales Territory Group",
-            "dataType": "string",
-            "isNameInferred": true,
-            "isDataTypeInferred": true,
-            "sourceColumn": "Sales Territory[Sales Territory Group]"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "CalculatedTable 1",
-            "source": {
-              "type": "calculated",
-              "expression": "VALUES('Sales Territory'[Sales Territory Group])"
-            }
-          }
-        ]
-      },
-      {
-        "name": "User",
-        "columns": [
-          {
-            "type": "calculatedTableColumn",
-            "name": "UserId",
-            "dataType": "string",
-            "isNameInferred": true,
-            "isDataTypeInferred": true,
-            "sourceColumn": "[UserId]"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "User",
-            "source": {
-              "type": "calculated",
-              "expression": [
-                "DataTable(\"UserId\", STRING,",
-                "{",
-                "\t{\"sqlcl01@microsoft.com\"},",
-                "\t{\"sqlcl02@microsoft.com\"}",
                 "}",
                 ")"
               ]
@@ -3301,27 +3249,11 @@
         "toColumn": "EmployeeKey"
       },
       {
-        "name": "fd400d79-a69b-45c7-9c6b-12057a03e212",
+        "name": "ebb58cf0-30e2-403f-8646-1d1f9f8741a1",
         "fromTable": "Sales Territory",
         "fromColumn": "Sales Territory Group",
-        "toTable": "Sales Territory Group",
+        "toTable": "Security",
         "toColumn": "Sales Territory Group"
-      },
-      {
-        "name": "b2f4913d-de87-4020-95fd-6df08ccc591b",
-        "fromTable": "Security",
-        "fromColumn": "Sales Territory Group",
-        "toTable": "Sales Territory Group",
-        "toColumn": "Sales Territory Group",
-        "crossFilteringBehavior": "bothDirections",
-        "securityFilteringBehavior": "bothDirections"
-      },
-      {
-        "name": "017bd17d-328f-4675-bb8a-059ede372674",
-        "fromTable": "Security",
-        "fromColumn": "UserId",
-        "toTable": "User",
-        "toColumn": "UserId"
       }
     ],
     "perspectives": [
@@ -4662,16 +4594,8 @@
         "modelPermission": "read",
         "tablePermissions": [
           {
-            "name": "Sales Territory",
-            "filterExpression": [
-              "'Sales Territory'[Sales Territory Group] = LOOKUPVALUE('Sales Territory'[Sales Territory Group]",
-              ", Security[UserId], USERNAME()",
-              ", 'Sales Territory'[Sales Territory Group], Security[Sales Territory Group])"
-            ]
-          },
-          {
-            "name": "User",
-            "filterExpression": "User[UserId]=USERNAME()"
+            "name": "Security",
+            "filterExpression": "Security[UserId]=USERNAME()"
           }
         ]
       },
