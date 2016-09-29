@@ -22,7 +22,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Development' ">
     <OutputPath>bin\</OutputPath>
-    <DeploymentServerName>asazure://westcentralus.asazure.windows.net/asincloud</DeploymentServerName>
+    <DeploymentServerName>asazure://westcentralus.asazure.windows.net/chwade000</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
     <DeploymentServerVersion>Version_11_0</DeploymentServerVersion>
     <DeploymentServerDatabase>AW Tabular Model SQL 2014</DeploymentServerDatabase>

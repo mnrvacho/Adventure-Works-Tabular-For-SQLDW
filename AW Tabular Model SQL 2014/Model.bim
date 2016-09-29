@@ -5,8 +5,8 @@
     "culture": "en-US",
     "dataSources": [
       {
-        "name": "SqlServer localhost",
-        "connectionString": "Provider=SQLNCLI11.1;Persist Security Info=False;User ID=wadecb;Initial Catalog=AdventureWorksSqlDw-CW0;Data Source=aspaas-sqldwsvr-cw0.database.windows.net",
+        "name": "Azure SQLDW AdventureWorks",
+        "connectionString": "Provider=SQLNCLI11.1;Persist Security Info=False;User ID=wadecb;Initial Catalog=AdventureWorksSqlDw-CW0;Data Source=aspaas-sqldwsvr-cw0.database.windows.net;Initial File Name=;Server SPN=",
         "impersonationMode": "impersonateServiceAccount",
         "annotations": [
           {
@@ -42,7 +42,7 @@
             "name": "Currency",
             "source": {
               "query": "SELECT [dbo].[DimCurrency].* \t\tFROM [dbo].[DimCurrency]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -216,7 +216,7 @@
             "name": "Customer",
             "source": {
               "query": "SELECT [dbo].[DimCustomer].* \t\tFROM [dbo].[DimCustomer]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -344,7 +344,7 @@
             "name": "Date",
             "source": {
               "query": "SELECT [dbo].[DimDate].* \t\tFROM [dbo].[DimDate]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -631,7 +631,7 @@
             "name": "Employee",
             "source": {
               "query": "SELECT [dbo].[DimEmployee].* \t\tFROM [dbo].[DimEmployee]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -709,7 +709,7 @@
             "name": "Geography",
             "source": {
               "query": "SELECT [dbo].[DimGeography].* \t\tFROM [dbo].[DimGeography]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -933,7 +933,7 @@
             "name": "Product",
             "source": {
               "query": "SELECT [dbo].[DimProduct].* \t\tFROM [dbo].[DimProduct]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -1008,7 +1008,7 @@
             "name": "Product Category",
             "source": {
               "query": "SELECT [dbo].[DimProductCategory].* \t\tFROM [dbo].[DimProductCategory]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -1063,7 +1063,7 @@
             "name": "Product Subcategory",
             "source": {
               "query": "SELECT [dbo].[DimProductSubcategory].* \t\tFROM [dbo].[DimProductSubcategory]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -1148,7 +1148,7 @@
             "name": "Promotion",
             "source": {
               "query": "SELECT [dbo].[DimPromotion].* \t\tFROM [dbo].[DimPromotion]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -1313,7 +1313,7 @@
             "name": "Reseller",
             "source": {
               "query": "SELECT [dbo].[DimReseller].* \t\tFROM [dbo].[DimReseller]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -1371,7 +1371,7 @@
             "name": "Sales Territory",
             "source": {
               "query": "SELECT [dbo].[DimSalesTerritory].* \t\tFROM [dbo].[DimSalesTerritory]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -1863,7 +1863,7 @@
             "name": "Internet Sales",
             "source": {
               "query": "SELECT [dbo].[FactInternetSales].* FROM [dbo].[FactInternetSales]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -2709,7 +2709,7 @@
             "name": "Reseller Sales",
             "source": {
               "query": "SELECT [dbo].[FactResellerSales].* FROM [dbo].[FactResellerSales]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
@@ -3045,7 +3045,7 @@
             "name": "Sales Quota",
             "source": {
               "query": "SELECT [dbo].[FactSalesQuota].* \t\tFROM [dbo].[FactSalesQuota]",
-              "dataSource": "SqlServer localhost"
+              "dataSource": "Azure SQLDW AdventureWorks"
             },
             "annotations": [
               {
