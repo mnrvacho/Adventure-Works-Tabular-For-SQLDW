@@ -4546,7 +4546,13 @@
       {
         "name": "Users",
         "description": "All allowed users to query the model",
-        "modelPermission": "read"
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "Sales Territory",
+            "filterExpression": "'Sales Territory'[Sales Territory Group] = \"Europe\""
+          }
+        ]
       },
       {
         "name": "Admins",
